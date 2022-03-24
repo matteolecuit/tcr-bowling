@@ -15,11 +15,17 @@ namespace BowlingGame.Test
         }
 
         [TestMethod]
-        public void TestContuneTurn()
+        public void TestShouldContinueTurn()
         {
             var game = new Game();
-            var continueTurn = game.Turn(0, 10);
-            Assert.IsTrue(continueTurn);
+            var continueTurn1 = game.ShouldContinueTurn(10, 0);
+            var continueTurn2 = game.ShouldContinueTurn(10, 1);
+            var continueTurn3 = game.ShouldContinueTurn(10, 2);
+            var continueTurn4 = game.ShouldContinueTurn(0, 1);
+            Assert.IsTrue(continueTurn1);
+            Assert.IsTrue(continueTurn2);
+            Assert.IsFalse(continueTurn3);
+            Assert.IsFalse(continueTurn4);
         }
     }
 }

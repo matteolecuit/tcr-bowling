@@ -22,6 +22,12 @@ namespace BowlingGame
         {
             return new Random().Next(0, NumberOfPin);
         }
+
+        public bool ShouldContinueTurn(int numberOfRemainingPins, int turn)
+        {
+            if (turn < 2 && numberOfRemainingPins > 0) return true;
+            return false;
+        }
     }
 
     class Program
