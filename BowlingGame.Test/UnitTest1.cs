@@ -1,5 +1,6 @@
 using System.Dynamic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 namespace BowlingGame.Test
 {
     [TestClass]
@@ -8,7 +9,8 @@ namespace BowlingGame.Test
         [TestMethod]
         public void TestDraw()
         {
-            var nombre = Game
+            var game = new Game();
+            var nombre = game.Draw();
         }
     }
 }
