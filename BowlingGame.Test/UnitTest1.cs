@@ -34,11 +34,12 @@ namespace BowlingGame.Test
             var game = new Game();
             var score = game.Draw();
             
-            Assert.IsTrue(score.NumberOfPinsRemaining <=10 && score.NumberOfPinsRemaining >=10);
+            Assert.IsTrue(score.NumberOfPinsRemaining <=10 && score.NumberOfPinsRemaining >=0);
             if (score.turn == 1)
             {
                 Assert.IsTrue(score.NumberOfPinsRemaining == 0);
             }
+            Assert.IsTrue(score.turn > 2 || score.turn < 0);
         }
     }
 }
