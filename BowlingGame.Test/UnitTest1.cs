@@ -12,7 +12,7 @@ namespace BowlingGame.Test
         {
             var game = new Game();
             var nombre = game.NumberPin(10);
-            Assert.IsTrue(nombre > 0);
+            Assert.IsTrue(nombre >= 0);
         }
 
         [TestMethod]
@@ -21,12 +21,10 @@ namespace BowlingGame.Test
             var game = new Game();
             var continueTurn1 = game.ShouldContinueTurn(10, 0);
             var continueTurn2 = game.ShouldContinueTurn(10, 1);
-            var continueTurn3 = game.ShouldContinueTurn(10, 2);
-            var continueTurn4 = game.ShouldContinueTurn(0, 1);
+            var continueTurn3 = game.ShouldContinueTurn(0, 1);
             Assert.IsTrue(continueTurn1);
-            Assert.IsTrue(continueTurn2);
+            Assert.IsFalse(continueTurn2);
             Assert.IsFalse(continueTurn3);
-            Assert.IsFalse(continueTurn4);
         }
 
         [TestMethod]
@@ -37,11 +35,11 @@ namespace BowlingGame.Test
             
             Console.WriteLine(score);
             Assert.IsTrue(score.score <=10 && score.score >=0);
-            if (score.turn == 1)
+            if (score.turn == 0)
             {
                 Assert.IsTrue(score.score == 0);
             }
-            Assert.IsTrue(score.turn > 2 || score.turn < 0);
+            Assert.IsTrue(score.turn == 0 || score.turn == 1);
         }
     }
 }

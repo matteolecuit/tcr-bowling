@@ -6,12 +6,13 @@ namespace BowlingGame
     {
         public int score, turn;
 
-        public TurnAndNumberOfPin(int score, int turn) {
+        public TurnAndNumberOfPin(int score, int turn)
+        {
             this.score = score;
             this.turn = turn;
         }
-    } 
-    
+    }
+
     public class Game
     {
         public TurnAndNumberOfPin Draw()
@@ -24,25 +25,24 @@ namespace BowlingGame
             {
                 pins = NumberPin(pins);
                 should = ShouldContinueTurn(pins, turn);
-                turn++;
+                if (should)
+                {
+                    turn++;
+                }
             }
+            Console.WriteLine(turn);
             var response = new TurnAndNumberOfPin((maxPin - pins), turn);
             return response;
         }
 
-        public bool Turn(int NumberOfTurn, int NumberOfPin)
-        {
-            return true;
-        }
-
         public int NumberPin(int NumberOfPin)
         {
-            return new Random().Next(0, NumberOfPin);
+            return new Random().Next(0, NumberOfPin + 1);
         }
 
         public bool ShouldContinueTurn(int numberOfRemainingPins, int turn)
         {
-            if (turn < 2 && numberOfRemainingPins > 0) return true;
+            if (turn < 1 && numberOfRemainingPins > 0) return true;
             return false;
         }
     }
