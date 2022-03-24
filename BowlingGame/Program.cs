@@ -2,15 +2,23 @@
 
 namespace BowlingGame
 {
+    public class TurnAndNumberOfPin
+    {
+        public int NumberOfPinsRemaining, turn;
+    } 
+    
     public class Game
     {
-        public void Draw()
+        public TurnAndNumberOfPin Draw()
         {
             for (int j = 0; j < 10; j++)
             {
                 int pin = 10;
                 Console.WriteLine(NumberPin(pin));
             }
+
+            var response = new TurnAndNumberOfPin();
+            return response;
         }
 
         public bool Turn(int NumberOfTurn, int NumberOfPin)

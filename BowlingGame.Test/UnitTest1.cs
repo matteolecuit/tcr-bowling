@@ -27,5 +27,18 @@ namespace BowlingGame.Test
             Assert.IsFalse(continueTurn3);
             Assert.IsFalse(continueTurn4);
         }
+
+        [TestMethod]
+        public void TestDraw()
+        {
+            var game = new Game();
+            var score = game.Draw();
+            
+            Assert.IsTrue(score.NumberOfPinsRemaining <=10 && score.NumberOfPinsRemaining >=10);
+            if (score.turn == 1)
+            {
+                Assert.IsTrue(score.NumberOfPinsRemaining == 0);
+            }
+        }
     }
 }
