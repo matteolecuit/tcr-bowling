@@ -7,10 +7,11 @@ namespace BowlingGame.Test
     public class UnitTest1
     {
         [TestMethod]
-        public void TestDraw()
+        public void TestNumberPin()
         {
             var game = new Game();
-            var nombre = game.Draw();
+            var nombre = game.NumberPin(10);
+            Assert.IsTrue(nombre > 0);
         }
     }
 }
