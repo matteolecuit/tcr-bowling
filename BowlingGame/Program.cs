@@ -13,6 +13,11 @@ namespace BowlingGame
             }
         }
 
+        public bool Turn(int NumberOfTurn, int NumberOfPin)
+        {
+            return true;
+        }
+
         public int NumberPin(int NumberOfPin)
         {
             return new Random().Next(0, NumberOfPin);

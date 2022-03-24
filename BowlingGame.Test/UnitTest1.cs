@@ -13,5 +13,13 @@ namespace BowlingGame.Test
             var nombre = game.NumberPin(10);
             Assert.IsTrue(nombre > 0);
         }
+
+        [TestMethod]
+        public void TestContuneTurn()
+        {
+            var game = new Game();
+            var continueTurn = game.Turn(0, 10);
+            Assert.IsTrue(continueTurn);
+        }
     }
 }
