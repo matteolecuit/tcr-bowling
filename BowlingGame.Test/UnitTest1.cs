@@ -1,3 +1,4 @@
+using System;
 using System.Dynamic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -34,10 +35,11 @@ namespace BowlingGame.Test
             var game = new Game();
             var score = game.Draw();
             
-            Assert.IsTrue(score.NumberOfPinsRemaining <=10 && score.NumberOfPinsRemaining >=0);
+            Console.WriteLine(score);
+            Assert.IsTrue(score.score <=10 && score.score >=0);
             if (score.turn == 1)
             {
-                Assert.IsTrue(score.NumberOfPinsRemaining == 0);
+                Assert.IsTrue(score.score == 0);
             }
             Assert.IsTrue(score.turn > 2 || score.turn < 0);
         }

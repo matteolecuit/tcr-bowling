@@ -4,10 +4,10 @@ namespace BowlingGame
 {
     public class TurnAndNumberOfPin
     {
-        public int NumberOfPinsRemaining, turn;
+        public int score, turn;
 
-        public TurnAndNumberOfPin(int NumberOfPinsRemaining, int turn) {
-            this.NumberOfPinsRemaining = NumberOfPinsRemaining;
+        public TurnAndNumberOfPin(int score, int turn) {
+            this.score = score;
             this.turn = turn;
         }
     } 
@@ -16,12 +16,17 @@ namespace BowlingGame
     {
         public TurnAndNumberOfPin Draw()
         {
-            var response = new TurnAndNumberOfPin(10, 0);
+            var maxPin = 10;
+            var turn = 0;
+            var pins = maxPin;
             var should = true;
             while (should)
             {
-                
+                pins = NumberPin(pins);
+                should = ShouldContinueTurn(pins, turn);
+                turn++;
             }
+            var response = new TurnAndNumberOfPin((maxPin - pins), turn);
             return response;
         }
 
